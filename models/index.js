@@ -2,6 +2,14 @@ const Traveller = require('./Traveller');
 const Location = require('./Location');
 const Trips = require('./Trips');
 
+Traveller.belongsToMany(Location, {
+  through: { model: Trips, unique: false },
+});
+
+Location.belongsToMany(Traveller, {
+  through: { model: Trips, unique: false },
+});
+
 Traveller.hasOne(Location, {
   foreignKey: 'traveller_id',
   onDelete: 'CASCADE',

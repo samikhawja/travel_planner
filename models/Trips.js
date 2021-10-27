@@ -17,17 +17,19 @@ Trips.init(
       type: DataTypes.STRING,
     },
     traveller_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
             model: 'traveller',
             key: 'id',
+            unique: false,
           },
     },
     location_id: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         references: {
             model: 'location',
             key: 'id',
+            unique: false,
           },
     },
   },
